@@ -1,2 +1,2 @@
-# ASI_UROP_Paper
+# ASI UROP Paper
 Repository to keep track of changes on LaTeX file 
