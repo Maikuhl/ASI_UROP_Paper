@@ -1,0 +1,337 @@
+#Define load package function 
+
+loadPkg <- function(pkgname){ 
+  
+  # require() is the same as library() but returns a logical. 
+  
+  # character.only= TRUE means pkgname is the name of the package. 
+  
+  isInstalled <- require(pkgname,character.only = TRUE)  
+  
+  # If the package has not been installed yet, then install and try again. 
+  
+  if (!isInstalled) {install.packages(pkgname); library(pkgname,character.only=TRUE)}  
+  
+} 
+
+
+
+#Loading Required Packages 
+
+loadPkg("DBI") 
+
+loadPkg("RSQLite") 
+
+loadPkg("leaflet") 
+
+loadPkg("geosphere") 
+
+loadPkg("tidyverse") 
+
+
+
+# Open an SQLite connection using the filename shown 
+
+conn <- dbConnect(RSQLite::SQLite(),"CargoIS_Data/CargoIS_data.db") 
+
+# Close the connection. 
+
+dbDisconnect(conn) 
+
+
+
+#Loading Database 
+
+cargo <- read_csv("data/updated.csv") 
+
+
+
+#Assigning Database Variables to Malaysia 
+
+
+
+MY_ASEAN <- read_csv("data/MY_ASEAN.csv") 
+
+x = MY_ASEAN$origin_latitude 
+
+y = MY_ASEAN$destination_latitude 
+
+z = MY_ASEAN$origin_longitude 
+
+a = MY_ASEAN$destination_longitude 
+
+b = MY_ASEAN$`Pseudo TY Mkt Shipments` 
+
+c = MY_ASEAN$`Destination Country Name` 
+
+
+
+#Initiate Map object 
+
+m = leaflet(data = MY_ASEAN) %>%  
+  
+  addTiles() 
+
+
+
+#Loop to add polyline and circle marker layers 
+
+for (i in 1:6) { 
+  
+  m = m %>%  
+    
+    addPolylines(data = MY_ASEAN, lat =c(x[i],y[i]), lng =c(z[i],a[i]), color = "red", weight = sqrt(b[i])) %>% 
+    
+    addCircleMarkers(data = MY_ASEAN, lat=4.210484, lng=101.9758, radius=1, popup = "Malaysia",color="green") %>% 
+    
+    addCircleMarkers(data = MY_ASEAN, lat=y[i], lng=~a[i], radius=1, popup = c[i]) 
+  
+} 
+
+m 
+
+
+
+#Assigning Database Variables to Singapore 
+
+
+
+SG_ASEAN <- read_csv("data/SG_ASEAN.csv") 
+
+x = SG_ASEAN$origin_latitude 
+
+y = SG_ASEAN$destination_latitude 
+
+z = SG_ASEAN$origin_longitude 
+
+a = SG_ASEAN$destination_longitude 
+
+b = SG_ASEAN$`Pseudo TY Mkt Shipments` 
+
+c = SG_ASEAN$`Destination Country Name` 
+
+
+
+#Initiate Map object 
+
+m = leaflet(data = SG_ASEAN) %>%  
+  
+  addTiles() 
+
+
+
+
+
+#Loop to add polyline and circle marker layers 
+
+for (i in 1:6) { 
+  
+  m = m %>%  
+    
+    addPolylines(data = SG_ASEAN, lat =c(x[i],y[i]), lng =c(z[i],a[i]), color = "red", weight = sqrt(b[i])) %>% 
+    
+    addCircleMarkers(data = SG_ASEAN, lat=1.352083, lng=103.8198, radius=1, popup = "Singapore",color="green") %>% 
+    
+    addCircleMarkers(data = SG_ASEAN, lat=y[i], lng=~a[i], radius=1, popup = c[i]) 
+  
+} 
+
+m 
+
+
+
+#Assigning Database Variables to Indonesia 
+
+
+
+IND_ASEAN <- read_csv("data/IND_ASEAN.csv") 
+
+x = IND_ASEAN$origin_latitude 
+
+y = IND_ASEAN$destination_latitude 
+
+z = IND_ASEAN$origin_longitude 
+
+a = IND_ASEAN$destination_longitude 
+
+b = IND_ASEAN$`Pseudo TY Mkt Shipments` 
+
+c = IND_ASEAN$`Destination Country Name` 
+
+
+
+#Initiate Map object 
+
+m = leaflet(data = IND_ASEAN) %>%  
+  
+  addTiles() 
+
+
+
+#Loop to add polyline and circle marker layers 
+
+for (i in 1:6) { 
+  
+  m = m %>%  
+    
+    addPolylines(data = IND_ASEAN, lat =c(x[i],y[i]), lng =c(z[i],a[i]), color = "red", weight = sqrt(b[i])) %>% 
+    
+    addCircleMarkers(data = IND_ASEAN, lat=-0.789275, lng=113.9213, radius=1, popup = "Indonesia",color="green") %>% 
+    
+    addCircleMarkers(data = IND_ASEAN, lat=y[i], lng=~a[i], radius=1, popup = c[i]) 
+  
+} 
+
+m 
+
+
+
+#Assigning Database Variables to Philippines 
+
+
+
+PHP_ASEAN <- read_csv("data/PHP_ASEAN.csv") 
+
+x = PHP_ASEAN$origin_latitude 
+
+y = PHP_ASEAN$destination_latitude 
+
+z = PHP_ASEAN$origin_longitude 
+
+a = PHP_ASEAN$destination_longitude 
+
+b = PHP_ASEAN$`Pseudo TY Mkt Shipments` 
+
+c = PHP_ASEAN$`Destination Country Name` 
+
+
+
+#Initiate Map object 
+
+m = leaflet(data = PHP_ASEAN) %>%  
+  
+  addTiles() 
+
+
+
+#Loop to add polyline and circle marker layers 
+
+for (i in 1:6) { 
+  
+  m = m %>%  
+    
+    addPolylines(data = PHP_ASEAN, lat =c(x[i],y[i]), lng =c(z[i],a[i]), color = "red", weight = sqrt(b[i])) %>% 
+    
+    addCircleMarkers(data = PHP_ASEAN, lat=12.87972, lng=121.774, radius=1, popup = "Philippines",color="green") %>% 
+    
+    addCircleMarkers(data = PHP_ASEAN, lat=y[i], lng=~a[i], radius=1, popup = c[i]) 
+  
+} 
+
+m 
+
+
+
+#Assigning Database Variables to Thailand 
+
+
+
+THL_ASEAN <- read_csv("data/THL_ASEAN.csv") 
+
+x = THL_ASEAN$origin_latitude 
+
+y = THL_ASEAN$destination_latitude 
+
+z = THL_ASEAN$origin_longitude 
+
+a = THL_ASEAN$destination_longitude 
+
+b = THL_ASEAN$`Pseudo TY Mkt Shipments` 
+
+c = THL_ASEAN$`Destination Country Name` 
+
+
+
+#Initiate Map object 
+
+m = leaflet(data = THL_ASEAN) %>%  
+  
+  addTiles() 
+
+
+
+#Loop to add polyline and circle marker layers 
+
+for (i in 1:6) { 
+  
+  m = m %>%  
+    
+    addPolylines(data = THL_ASEAN, lat =c(x[i],y[i]), lng =c(z[i],a[i]), color = "red", weight = sqrt(b[i])) %>% 
+    
+    addCircleMarkers(data = THL_ASEAN, lat=15.87003, lng=100.9925, radius=1, popup = "Thailand",color="green") %>% 
+    
+    addCircleMarkers(data = THL_ASEAN, lat=y[i], lng=~a[i], radius=1, popup = c[i]) 
+  
+} 
+
+m 
+
+
+
+
+
+library(data.table) 
+
+
+
+data(ASEAN) 
+
+t_ASEAN <- transpose(ASEAN) 
+
+
+
+cor(ASEAN) 
+
+
+
+
+
+
+
+plot(x, y = ASEAN, pch = 19, col = "lightblue") 
+
+
+
+# Regression line 
+
+abline(lm(y ~ x), col = "red", lwd = 3) 
+
+
+
+# Pearson correlation 
+
+text(paste("Correlation:", round(cor(x, y), 2)), x = 25, y = 95) 
+
+
+
+write.csv(ASEAN, "data/ASEAN_GDP.csv") 
+
+
+
+ASEAN_COR = cor(ASEAN) 
+
+
+
+install.packages("corrplot") 
+
+library(corrplot) 
+
+corrplot(ASEAN_COR) 
+
+
+
+pairs(ASEAN, pch = 19, lower.panel = NULL) 
+
+
+
+plot(ASEAN) 
