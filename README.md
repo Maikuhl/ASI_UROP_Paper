@@ -17,7 +17,7 @@ Open-source macroeconomic data was used in this project, and air cargo data was 
 
 ## Map Plots 
 
-Used Google's open-source dspl dataset for geospatial coordinates of each country. Plotted in R via Leaflet. 
+Used Google's open-source dspl dataset for geospatial coordinates of each country. Plotted in R via Leaflet. Original source file was an interactive html file, saved as a png to include in the final report. 
 
 ![Singapore_Map](https://github.com/Maikuhl/ASI_UROP_Paper/blob/main/Images_Used/Map_Plots/All/Singapore_Exports.png)
 
