@@ -19,6 +19,7 @@ Open-source macroeconomic data was used in this project, and air cargo data was 
 1. R - (ggplot, ggpairs, leaflet, tidyverse) 
 2. Python - (pandas, numpy, plotly)
 3. DBeaver - (SQLite)
+4. LaTeX
 ```
 
 # Examples of Graphs Produced
