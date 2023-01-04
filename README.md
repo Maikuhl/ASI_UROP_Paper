@@ -14,7 +14,7 @@ Open-source macroeconomic data was used in this project, and air cargo data was 
 > Final Report in pdf can be found under *Final Report* folder.
 
 ```
-## Software used:
+**Software used**:
 1. R - (ggplot, ggpairs, leaflet, tidyverse) 
 2. Python - (pandas, numpy, plotly)
 3. DBeaver - (SQLite)
