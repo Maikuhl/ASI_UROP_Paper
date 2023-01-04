@@ -37,6 +37,6 @@ Line Plots were generated in R via the ggplot library, displaying each country's
 
 Pair plots were generated in R via the ggpairs library, displaying the relationship between bivariate data (GDP in this case). Plots along the diagonal represent the KDE plots of each variable. 
 
-![Corrplot](https://github.com/Maikuhl/ASI_UROP_Paper/blob/main/Images_Used/Quarterly_Data/CorrPlots/Corrplot_SG.pdf)
+![Corrplot](https://github.com/Maikuhl/ASI_UROP_Paper/blob/main/Images_Used/Quarterly_Data/CorrPlots/Singapore_Corrplot.png)
 
 
