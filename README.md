@@ -5,9 +5,9 @@ LaTeX source files are stored and updated in this repository to keep track of re
 
 This project fulfills the requirements of a UROP under SUTD, in collaboration with the [Aviation Studies Institute](https://asi.sutd.edu.sg/) and the [International Air Transport Association](https://www.iata.org/) [IATA].
 
-Open-source macroeconomic data was used in this project, and air cargo data was obtained via IATA's CargoIS platform. More details can be found in the final report.
+Open-source macroeconomic data was used in this project, and air cargo data was obtained via IATA. More details can be found in the final report.
 
-> R and SQL scripts for data wrangling can be found under *IATA_Database* folder. Graphs were created in R via ggplot, while the data was queried via SQL and cleaned with Pandas in Python. Original datasets were provided in .CSV format.
+> R and SQL scripts for data wrangling can be found under *IATA_Database* folder. Graphs were created in R via ggplot and in Python via Plotly, while the data was queried via SQL and cleaned with Pandas in Python.
 
 > Scripts for data wrangling in Python can be found under *Python_Fun* folder.
 
@@ -17,7 +17,7 @@ Open-source macroeconomic data was used in this project, and air cargo data was 
 1. R - (ggplot, ggpairs, leaflet, tidyverse) 
 2. Python - (pandas, numpy, plotly)
 3. DBeaver - (SQLite)
-4. LaTeX
+4. Overleaf - LaTeX
 ```
 
 # Examples of Graphs Produced
